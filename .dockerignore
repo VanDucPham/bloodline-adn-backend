@@ -8,7 +8,4 @@ upload/
 *.log
 .idea/
 *.iml
-.mvn/
-mvnw
-mvnw.cmd
 HELP.md 

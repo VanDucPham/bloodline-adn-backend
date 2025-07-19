@@ -1,10 +1,9 @@
 # Build stage
 FROM maven:3.9.6-eclipse-temurin-21 AS build
 WORKDIR /app
-COPY . .
-RUN chmod +x mvnw
-RUN chmod +x build.sh
-RUN ./build.sh
+COPY pom.xml .
+COPY src ./src
+RUN mvn clean package -DskipTests
 
 # Run stage
 FROM eclipse-temurin:21-jre
