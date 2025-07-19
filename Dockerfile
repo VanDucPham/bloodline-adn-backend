@@ -12,5 +12,4 @@ COPY --from=build /app/target/*.jar app.jar
 EXPOSE 8080
 ENV PORT=8080
 ENV SPRING_PROFILES_ACTIVE=prod
-ENV SPRING_JCL_OVER_SLF4J=true
-ENTRYPOINT ["java", "-Dspring.profiles.active=${SPRING_PROFILES_ACTIVE}", "-Dserver.port=${PORT}", "-Dspring.jcl.over.slf4j=true", "-Dlogback.configurationFile=/dev/null", "-jar", "app.jar"] 
+ENTRYPOINT ["java", "-Dspring.profiles.active=${SPRING_PROFILES_ACTIVE}", "-Dserver.port=${PORT}", "-Dlogging.level.org.apache.commons.logging=OFF", "-jar", "app.jar"] 
