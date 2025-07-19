@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!-- Disable commons-logging -->
+    <contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator">
+        <resetJUL>true</resetJUL>
+    </contextListener>
+    
+    <!-- Console appender -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    
+    <!-- Root logger -->
+    <root level="INFO">
+        <appender-ref ref="CONSOLE" />
+    </root>
+    
+    <!-- Application logger -->
+    <logger name="com.example" level="INFO" />
+    
+    <!-- Spring logger -->
+    <logger name="org.springframework" level="INFO" />
+    
+    <!-- Disable commons-logging -->
+    <logger name="org.apache.commons.logging" level="OFF" />
+    <logger name="org.springframework.jcl" level="OFF" />
+</configuration> 
